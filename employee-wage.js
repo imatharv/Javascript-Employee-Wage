@@ -6,7 +6,6 @@ let empCheck = Math.floor(Math.random()*10)%2;
 
 if(empCheck == IS_ABSENT) {
     console.log("Employee Absent");
-    return;
 } else {
     console.log("Employee Present");
 }
