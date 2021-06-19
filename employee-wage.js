@@ -155,3 +155,4 @@ let partWorkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => daily
 console.log("UC-11C Part Working Days: "+partWorkingDayStrArr);
 let nonWorkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0).map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
 console.log("UC-11D Non Working Days: "+nonWorkingDayStrArr);
+
