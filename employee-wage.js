@@ -125,7 +125,7 @@ console.log("Part Working Days: "+partWorkingDays);
 console.log("Non Working Days: "+nonWorkingDays);
 
 //UC 10 To store Day, Hours Worked and Wage Earned in a Single Object
-totalEmpHrs =0;
+totalEmpHrs = 0;
 let totalWorkingDays = 0;
 let empDailyHrsAndWageArr = new Array();
 while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
@@ -144,3 +144,14 @@ while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
     }); 
 }
 console.log("UC-10 Daily Hours worked and Wage Earned: "+empDailyHrsAndWageArr);
+
+//UC11 Object Operations using Helper functions
+let totalwages = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0).reduce((totalWage, dailyHrsAndWage) => totalWage += dailyHrsAndWage.dailyWage , 0);
+let totalhours = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0).reduce((totalHours, dailyHrsAndWage) => totalHours += dailyHrsAndWage.dailyHours , 0);
+console.log("UC-11A Total Hours: "+totalhours+" Total Wages: "+totalwages);
+console.log("UC-11B Logging Full Work Days");
+let fullWorkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 8).forEach(dailyHrsAndWage => console.log(dailyHrsAndWage.toString()));
+let partWorkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4).map(dailyHrsAndWage => dailyHrsAndWage.toString());
+console.log("UC-11C Part Working Days: "+partWorkingDayStrArr);
+let nonWorkingDayStrArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0).map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+console.log("UC-11D Non Working Days: "+nonWorkingDayStrArr);
